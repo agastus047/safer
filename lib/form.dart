@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safer/CRUD.dart';
 
 class FormWidget extends StatelessWidget {
   const FormWidget({Key? key}) : super(key: key);
@@ -24,7 +25,13 @@ class FormDemo extends StatefulWidget {
 
 class _FormDemoState extends State<FormDemo> {
   final _formKey = GlobalKey<FormState>();
-  TimeOfDay _selectedTime = TimeOfDay.now();
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController vehiclePlateNumberController = TextEditingController();
+  TextEditingController secondVehiclePlateNumberController =
+      TextEditingController();
+  TextEditingController accidentLocationController = TextEditingController();
+  TextEditingController accidentDescriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,51 +44,88 @@ class _FormDemoState extends State<FormDemo> {
         child: Form(
           key: _formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              _buildTextBox('Name', ""),
-              _buildTextBox('Vehicle Plate Number', ''),
-              _buildTextBox('Second Vehicle Plate Number', ''),
-              _buildTextBox('Accident Location', ''),
-              _buildTextBox('Accident Description', ''),
-              GestureDetector(
-                onTap: () async {
-                  final TimeOfDay? pickedTime = await showTimePicker(
-                    context: context,
-                    initialTime: _selectedTime,
-                  );
-                  if (pickedTime != null && pickedTime != _selectedTime) {
-                    setState(() {
-                      _selectedTime = pickedTime;
-                    });
+              TextFormField(
+                controller: nameController,
+                decoration: InputDecoration(labelText: 'Name'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your name';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: vehiclePlateNumberController,
+                decoration: InputDecoration(labelText: 'Vehicle Plate Number'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your vehicle plate number';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: secondVehiclePlateNumberController,
+                decoration:
+                    InputDecoration(labelText: 'Second Vehicle Plate Number'),
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: accidentLocationController,
+                decoration: InputDecoration(labelText: 'Accident Location'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter the accident location';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: accidentDescriptionController,
+                decoration: InputDecoration(labelText: 'Accident Description'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter the accident description';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Get values from the controllers
+                    String name = nameController.text;
+                    String vehiclePlateNumber =
+                        vehiclePlateNumberController.text;
+                    String secondVehiclePlateNumber =
+                        secondVehiclePlateNumberController.text;
+                    String accidentLocation = accidentLocationController.text;
+                    String accidentDescription =
+                        accidentDescriptionController.text;
+
+                    // Pass values to the writeTo function in CRUD1
+                    Crud1.writeTo(
+                      name,
+                      vehiclePlateNumber,
+                      secondVehiclePlateNumber,
+                      accidentLocation,
+                      accidentDescription,
+                    );
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Processing Data'),
+                      ),
+                    );
                   }
                 },
-                child: InputDecorator(
-                  decoration: const InputDecoration(
-                    labelText: 'Accident Time',
-                    hintText: 'Select time',
-                  ),
-                  isEmpty: _selectedTime == null,
-                  child: Text(
-                    _selectedTime.format(context),
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Processing Data'),
-                        ),
-                      );
-                    }
-                  },
-                  child: const Text('Submit'),
-                ),
+                child: const Text('Submit'),
               ),
             ],
           ),
@@ -90,21 +134,14 @@ class _FormDemoState extends State<FormDemo> {
     );
   }
 
-  Widget _buildTextBox(String labelText, String hintText) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      margin: const EdgeInsets.only(bottom: 16.0),
-      decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          labelText: labelText,
-          hintText: hintText,
-          border: InputBorder.none,
-        ),
-      ),
-    );
+  @override
+  void dispose() {
+    // Clean up the controllers when the widget is disposed
+    nameController.dispose();
+    vehiclePlateNumberController.dispose();
+    secondVehiclePlateNumberController.dispose();
+    accidentLocationController.dispose();
+    accidentDescriptionController.dispose();
+    super.dispose();
   }
 }
