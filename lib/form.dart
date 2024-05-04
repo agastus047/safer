@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class FormWidget extends StatelessWidget {
+  const FormWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +39,11 @@ class _FormDemoState extends State<FormDemo> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              _buildTextBox('Name', 'Enter your name'),
-              _buildTextBox('Vehicle Plate Number', 'Enter your vehicle plate number'),
-              _buildTextBox('Second Vehicle Plate Number', 'Enter second vehicle plate number'),
-              _buildTextBox('Accident Location', 'Enter accident location'),
-              _buildTextBox('Accident Description', 'Enter accident description'),
+              _buildTextBox('Name', ""),
+              _buildTextBox('Vehicle Plate Number', ''),
+              _buildTextBox('Second Vehicle Plate Number', ''),
+              _buildTextBox('Accident Location', ''),
+              _buildTextBox('Accident Description', ''),
               GestureDetector(
                 onTap: () async {
                   final TimeOfDay? pickedTime = await showTimePicker(
