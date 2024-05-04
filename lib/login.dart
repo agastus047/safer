@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safer/page2.dart';
 import 'package:safer/signup.dart';
 
 class LoginPage extends StatelessWidget {
@@ -47,7 +48,10 @@ class LoginPage extends StatelessWidget {
               ),
               SizedBox(height: 20.0),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () { Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyPage2()),
+                  );},
                 child: Text('Login'),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(vertical: 15.0),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safer/form.dart';
 
 class MyPage2 extends StatelessWidget {
   MyPage2({Key? key});
@@ -220,7 +221,10 @@ class MyPage2 extends StatelessWidget {
             SizedBox(height: height * 0.08),
             ElevatedButton.icon(
               onPressed: () {
-                // Add functionality to make emergency contact here
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FormDemo()),
+                  );
               },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
