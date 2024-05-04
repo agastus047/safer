@@ -41,66 +41,11 @@ class _FormDemoState extends State<FormDemo> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter your name',
-                  labelText: 'Name',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter your vehicle plate number',
-                  labelText: 'Vehicle Plate Number',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your vehicle plate number';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter second vehicle plate number',
-                  labelText: 'Second Vehicle Plate Number',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter the second vehicle plate number';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter accident location',
-                  labelText: 'Accident Location',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter accident location';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter accident decription',
-                  labelText: 'Accident description',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter accident description';
-                  }
-                  return null;
-                },
-              ),
+              _buildTextBox('Name', 'Enter your name'),
+              _buildTextBox('Vehicle Plate Number', 'Enter your vehicle plate number'),
+              _buildTextBox('Second Vehicle Plate Number', 'Enter second vehicle plate number'),
+              _buildTextBox('Accident Location', 'Enter accident location'),
+              _buildTextBox('Accident Description', 'Enter accident description'),
               GestureDetector(
                 onTap: () async {
                   final TimeOfDay? pickedTime = await showTimePicker(
@@ -142,6 +87,24 @@ class _FormDemoState extends State<FormDemo> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextBox(String labelText, String hintText) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      margin: const EdgeInsets.only(bottom: 16.0),
+      decoration: BoxDecoration(
+        border: Border.all(color: const Color.fromARGB(255, 0, 0, 0)),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: labelText,
+          hintText: hintText,
+          border: InputBorder.none,
         ),
       ),
     );
