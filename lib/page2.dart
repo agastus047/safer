@@ -55,7 +55,7 @@ class MyPage2 extends StatelessWidget {
                   Row( 
                     children: [
                       SizedBox(
-                        width: width*0.25,
+                        width: width*0.1,
                       ),
                       Text(
                         "Choose Current Location",
@@ -69,7 +69,7 @@ class MyPage2 extends StatelessWidget {
                   ),
                   SizedBox(height: height * 0.02),
                   Container(
-                    width: width * 0.4,
+                    width: width * 0.7,
                     height: height * 0.06,
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 247, 249, 248),
@@ -90,7 +90,7 @@ class MyPage2 extends StatelessWidget {
                   Row(
                     children: [
                       SizedBox(
-                        width: width*0.25,
+                        width: width*0.1,
                       ),
                       Text(
                         "Choose Destination",
@@ -104,7 +104,7 @@ class MyPage2 extends StatelessWidget {
                   ),
                   SizedBox(height: height * 0.02),
                   Container(
-                    width: width * 0.4,
+                    width: width * 0.7,
                     height: height * 0.06,
                     decoration: BoxDecoration(
                       color: Color.fromARGB(255, 247, 249, 248),
@@ -156,7 +156,7 @@ class MyPage2 extends StatelessWidget {
             ),
             SizedBox(height: height * 0.04),
             Container(
-              width: width * 0.4,
+              width: width * 0.7,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Color.fromARGB(255, 13, 99, 168),
@@ -189,10 +189,9 @@ class MyPage2 extends StatelessWidget {
                       ),
                       SizedBox(width: 8), // Add some space between the icon and the text
                       Text(
-                        "Number of accident-prone areas: 2", // Replace XX with the actual number
+                        "Accident-prone areas: 2", // Replace XX with the actual number
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
                         ),
                       ),
                     ],
