@@ -4,8 +4,8 @@ import 'package:safer/login.dart';
 import 'package:safer/signup.dart';
 import 'package:safer/form.dart';
 import 'package:safer/page2.dart';
+import 'package:safer/map_page.dart';
 import 'package:safer/splash.dart';
-
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +19,7 @@ void main() {
       'sign': (BuildContext) => SignUp(),
       'form': (BuildContext) => FormDemo(),
       'page2': (BuildContext) => MyPage2(),
+      'map': (BuildContext) => MapPage(),
     },
   )
   );
