@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:safer/login.dart';
 import 'package:safer/page2.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class SplashScreen extends StatelessWidget {
           height: 1000, // Adjust height as needed
         ), 
       ),
-      nextScreen: MyPage2(),
+      nextScreen: LoginPage(),
       duration: 3500,
       backgroundColor: Colors.white,
     );
