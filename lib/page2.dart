@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safer/form.dart';
 
 class MyPage2 extends StatelessWidget {
   MyPage2({Key? key});
@@ -153,21 +154,93 @@ class MyPage2 extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: height * 0.03),
-            Text(
-              "Because Every Mile Matters",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            SizedBox(height: height * 0.04),
+            Container(
+              width: width * 0.4,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 13, 99, 168),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Currently Approaching",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "Chinnakkada Jn, Kollam",
+                    style: TextStyle(
+                      color: Colors.white
+                    ),
+                  ),
+                  SizedBox(height: 8), // Add some space between the text and the warning icon
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.warning,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(width: 8), // Add some space between the icon and the text
+                      Text(
+                        "Number of accident-prone areas: 2", // Replace XX with the actual number
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16), // Add some space between the warning icon and the button
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add functionality to make emergency contact here
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30), // Set button border radius
+                      ),
+                    ),
+                    child: Text(
+                      "Emergency Contact",
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: height * 0.02),
-            // Image.asset(
-            //   'LOGO.png',
-            //   width: width * 0.5,
-            //   height: width * 0.4,
-            // ),
+
+            SizedBox(height: height * 0.08),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FormDemo()),
+                  );
+              },
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30), // Set button border radius
+                ),
+                minimumSize: Size(200, 70),
+              ),
+              icon: Icon(Icons.report), // Replace with the desired icon
+              label: Text(
+                "Report Accident",
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
