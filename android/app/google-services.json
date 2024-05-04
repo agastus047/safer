@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "958094605442",
+    "firebase_url": "https://safetraverse-default-rtdb.firebaseio.com",
+    "project_id": "safetraverse",
+    "storage_bucket": "safetraverse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958094605442:android:a8c8eae003cf42ba12489b",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbC8arUXhQqP1873QgYy2lHKpXSuhtx_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958094605442:android:062178a0aa89063812489b",
+        "android_client_info": {
+          "package_name": "com.example.safer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbC8arUXhQqP1873QgYy2lHKpXSuhtx_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
