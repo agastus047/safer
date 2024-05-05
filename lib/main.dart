@@ -5,6 +5,7 @@ import 'package:safer/login.dart';
 import 'package:safer/signup.dart';
 import 'package:safer/form.dart';
 import 'package:safer/page2.dart';
+import 'package:safer/map_page.dart';
 import 'package:safer/splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,6 +22,7 @@ void main() {
       'sign': (BuildContext) => SignUp(),
       'form': (BuildContext) => FormDemo(),
       'page2': (BuildContext) => MyPage2(),
+      'map': (BuildContext) => MapPage(),
     },
   ));
 }
