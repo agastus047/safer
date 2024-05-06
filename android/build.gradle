@@ -1,10 +1,7 @@
 buildscript {
-  dependencies {
-    // Add our classpath 
-     classpath 'com.google.gms:google-services:4.3.10'
-    // Add More 
- }
+    ext.kotlin_version = '1.9.23'
 }
+
 allprojects {
     repositories {
         google()
