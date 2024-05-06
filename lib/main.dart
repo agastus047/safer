@@ -15,7 +15,7 @@ void main() {
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'splash',
+    initialRoute: 'map',
     routes: {
       'splash': (BuildContext) => SplashScreen(),
       'login': (BuildContext) => LoginPage(),

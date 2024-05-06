@@ -16,11 +16,20 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: _pGooglePlex,
-          zoom: 13,
-        ),
-      ),
+          initialCameraPosition: CameraPosition(
+            target: _pGooglePlex,
+            zoom: 20,
+          ),
+          markers: {
+            Marker(
+                markerId: MarkerId("currentLocation"),
+                icon: BitmapDescriptor.defaultMarker,
+                position: _pGooglePlex),
+            Marker(
+                markerId: MarkerId("currentLocation"),
+                icon: BitmapDescriptor.defaultMarker,
+                position: _pGooglePlex)
+          }),
     );
   }
 }
